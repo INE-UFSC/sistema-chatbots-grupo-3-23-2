@@ -20,9 +20,9 @@ class SistemaChatBot:
         ##mostra o menu de escolha de bots
     
     def escolhe_bot(self):
-        num_escolhido = int(input("Digite o número do chat bot desejado: "))
+        num_escolhido = input("Digite o número do chat bot desejado: ")
         ##faz a entrada de dados do usuário e atribui o objeto ao atributo __bot 
-        self.__bot = self.__lista_bots[num_escolhido]
+        self.__bot = self.__lista_bots[int(num_escolhido)]
         print(f"--> {self.__bot.nome} diz: {self.__bot.boas_vindas()}")
 
 
@@ -33,8 +33,8 @@ class SistemaChatBot:
     def le_envia_comando(self):
         while True:
             self.mostra_comandos_bot()
-            comando = int(input("Digite o comando desejado (ou -1 para fechar): "))
-            if comando == -1:
+            comando = input("Digite o comando desejado (ou -1 para fechar): ")
+            if comando == "-1":
                 self.__bot.despedida()
                 break
             else:
