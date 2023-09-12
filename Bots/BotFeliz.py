@@ -2,16 +2,8 @@ from Bots.Bot import Bot
 
 class BotFeliz(Bot):
     def __init__(self,nome):
-        self.__nome = nome
-        self.__comandos = {1 : 'Bom dia, flor do dia!', 2: 'Acredite em si mesmo e em seu potencial ilimitado. Você é mais capaz do que imagina!', 3: 'Seu esforço e dedicação são realmente admiráveis. Continue assim!', 4 : self.despedida() }
-
-    @property
-    def nome(self):
-        return self.__nome 
-    
-    @nome.setter
-    def nome(self, nome):
-        self.__nome = nome
+        super().__init__(nome)
+        self.comandos = {"1" : 'Bom dia, flor do dia!', "2": 'Acredite em si mesmo e em seu potencial ilimitado. Você é mais capaz do que imagina!', "3": 'Seu esforço e dedicação são realmente admiráveis. Continue assim!', "4": self.despedida() }
 
     def apresentacao(self):
         return ("Olá! Eu sou o Risobótico e estou disposto a alegrar o seu dia!")
@@ -23,7 +15,7 @@ class BotFeliz(Bot):
 
     
     def executa_comando(self,cmd):
-        return self.__comandos[cmd]
+        return self.comandos[cmd]
         
 
 
