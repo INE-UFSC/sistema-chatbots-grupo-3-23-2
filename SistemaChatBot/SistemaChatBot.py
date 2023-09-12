@@ -25,7 +25,6 @@ class SistemaChatBot:
         self.__bot = self.__lista_bots[int(num_escolhido)]
         print(f"--> {self.__bot.nome} diz: {self.__bot.boas_vindas()}")
 
-
     def mostra_comandos_bot(self):
         print(self.__bot.mostra_comandos())
         ##mostra os comandos disponíveis no bot escolhido
@@ -39,9 +38,6 @@ class SistemaChatBot:
                 break
             else:
                 print(self.__bot.executa_comando(comando))
-
-
-
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
 
     def inicio(self):
