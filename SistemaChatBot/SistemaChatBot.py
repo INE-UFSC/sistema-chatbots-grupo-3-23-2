@@ -37,7 +37,7 @@ class SistemaChatBot:
                 self.__bot.despedida()
                 break
             else:
-                print(self.__bot.executa_comando(comando))
+                print(self.__bot.executa_comando(int(comando)))
         ##faz a entrada de dados do usuário e executa o comando no bot ativo
 
     def inicio(self):
