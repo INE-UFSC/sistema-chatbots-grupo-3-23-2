@@ -2,10 +2,10 @@ from Bots.Bot import Bot
 from Bots.Comando import Comando
 
 class BotGago(Bot):
-    def __init__(self, nome):
-        super().__init__(nome)
-        self.comandos = [Comando("Bom dia", "Bo-bo-bom dia!"), Comando("Preciso de um conselho", "Se um estra-tra-tra-tranho o-ofe-fe-ferecer drogas, a-a-aceite. Drogas são caras!"),
-                        Comando("Previsão do tempo", "Vai cho-chover ca-ca-canivetes"), Comando("Adeus", self.despedida())]
+    def __init__(self, nome, urlJSON):
+        super().__init__(nome, urlJSON)
+        self.comandos = [Comando(0, "Bom dia", ["Bo-bo-bom dia!"]), Comando(1, "Preciso de um conselho", ["Se um estra-tra-tra-tranho o-ofe-fe-ferecer drogas, a-a-aceite. Drogas são caras!"]),
+                        Comando(2, "Previsão do tempo", ["Vai cho-chover ca-ca-canivetes"]), Comando(3, "Adeus", [self.despedida()])]
 
     def apresentacao(self):
         return 'O-o-olá, me-meu nome-me-me-me-me é Gaguinho, espe-pe-pe-ro po-de-der aju-ju-ju-ju-ju-ju-dar!'
