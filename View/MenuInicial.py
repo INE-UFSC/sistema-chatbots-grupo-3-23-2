@@ -23,7 +23,7 @@ class MenuInicial():
             [sg.Text('Escolha um dos bots disponíveis para interação')],
             [sg.Text('Selecione um bot:')],
             [sg.Combo(bot_nomes, default_value=bot_nomes[default_bot_index], key='bot_selecionado', readonly=True)],
-            [sg.Button('OK')],
+            [sg.Button('Conversar'), sg.Button('Editar comandos')],
             [sg.Text(key='resultado')]
         ]
 

@@ -1,12 +1,13 @@
 import DAO
-import Cliente
+import Comando
 
-class ClienteDAO(DAO):
-    def __init__(self):
-        super().__init__('clientes.pkl')
+class ComandoDAO(DAO):
 
-    def add(self, codigo: int, cliente: Cliente):
-            self.cache[codigo] = cliente
+    def __init__(self, url):
+        super().__init__(url)
+
+    def add(self, codigo: int, comando: Comando):
+            self.cache[codigo] = comando
 
     def get(self, codigo: int):
         try:

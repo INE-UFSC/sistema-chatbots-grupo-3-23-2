@@ -1,5 +1,5 @@
 ##implemente as seguintes classes
-
+from Bots.Comando import Comando
 from abc import ABC, abstractmethod
 import random as r
 
@@ -42,6 +42,14 @@ class Bot(ABC):
 
     def executa_comando(self,cmd):
         return self.comandos[cmd].get_resposta_random()
+    
+    def adicionar_resposta(self, id, texto):
+        for comando in self.__comandos:
+            if comando.id == id:
+                comando.addResposta(texto)
+    
+    def adicionar_comando(self, id, mensagem):
+        self.__comandos.append(Comando(id, mensagem, []))
 
     @abstractmethod
     def boas_vindas():
