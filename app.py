@@ -8,7 +8,7 @@ from View.MenuInicial import MenuInicial
 from Control.ControladorBots import ControladorBots
 
 
-control = ControladorBots([BotFelizinho("Lucian", "a"), BotNaruto("Naruto", "a"), BotGago("Elio", "a")])
+control = ControladorBots([BotFelizinho("Lucian", "lucian.pkl"), BotNaruto("Naruto", "naruto.pkl"), BotGago("Elio", "elio.pkl")])
 
 control.inicia()
 

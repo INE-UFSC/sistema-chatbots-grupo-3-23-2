@@ -33,8 +33,11 @@ class Comando():
         self.__id = id  
 
     def get_resposta_random(self):
-        numero_aleatorio = random.randint(0, len(self.__respostas)-1)
-        return self.__respostas[numero_aleatorio]
+        try:
+            numero_aleatorio = random.randint(0, len(self.__respostas)-1)
+            return self.__respostas[numero_aleatorio]
+        except:
+            return "Sem resposta para o comando :("
     
     def addResposta(self, resposta):
         self.__respostas.append(resposta)

@@ -1,5 +1,6 @@
 ##implemente as seguintes classes
 from Bots.Comando import Comando
+from Bots.ComandoDAO import ComandoDAO
 from abc import ABC, abstractmethod
 import random as r
 
@@ -8,7 +9,7 @@ class Bot(ABC):
     def __init__(self, nome, urlJSON):
         self.__urlJSON = urlJSON
         self.__nome = nome
-        self.__comandos = []
+        self.__comandos = ComandoDAO(urlJSON)
 
     @property
     def nome(self):
@@ -16,7 +17,7 @@ class Bot(ABC):
     
     @property
     def comandos(self):
-        return self.__comandos
+        return list(self.__comandos.get_all())
 
     @property
     def urlJSON(self):
@@ -35,21 +36,20 @@ class Bot(ABC):
         self.__urlJSON = urlJSON
 
     def mostra_comandos(self):
-        comandos = ""
-        for i in range(len(self.__comandos)):
-            comandos += f"{i} - {self.__comandos[i].mensagem} \n"
-        return comandos
-
-    def executa_comando(self,cmd):
-        return self.comandos[cmd].get_resposta_random()
+        comandos = self.__comandos.get_all()
+        comandosString = ''
+        for i in range(len(comandos)):
+            comandosString += f"{i} - {comandos[i].mensagem} \n"
+        return comandosString
     
     def adicionar_resposta(self, id, texto):
-        for comando in self.__comandos:
-            if comando.id == id:
-                comando.addResposta(texto)
+        comando = self.__comandos.get(id)
+        comando.addResposta(texto)
+        self.__comandos.remove(id)
+        self.__comandos.add(id, comando)
     
     def adicionar_comando(self, id, mensagem):
-        self.__comandos.append(Comando(id, mensagem, []))
+        self.__comandos.add(id, Comando(id, mensagem, []))
 
     @abstractmethod
     def boas_vindas():

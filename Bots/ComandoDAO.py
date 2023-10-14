@@ -1,5 +1,5 @@
-import DAO
-import Comando
+from Bots.DAO import DAO
+from Bots.Comando import Comando
 
 class ComandoDAO(DAO):
 
@@ -8,6 +8,7 @@ class ComandoDAO(DAO):
 
     def add(self, codigo: int, comando: Comando):
             self.cache[codigo] = comando
+            self.dump()
 
     def get(self, codigo: int):
         try:
