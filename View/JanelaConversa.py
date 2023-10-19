@@ -23,6 +23,9 @@ class JanelaConversa():
 
     def mostra_resultado(self, resultado): 
         self.__window.Element('resultado').update(resultado)
+    
+    def apaga_mensagem(self): 
+        self.__window.Element('codigo').update("")
 
     def le_eventos(self):
         return self.__window.read()

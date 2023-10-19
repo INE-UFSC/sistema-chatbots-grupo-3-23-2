@@ -7,6 +7,7 @@ class MenuInicial():
         self.__controlador = controlador
         self.__container = []
         self.__window = sg.Window("Escolha de bots", self.__container, font=("Helvetica", 16))
+        sg.theme('Material1')
 
     def tela_menu(self):
         bot_nomes = []
@@ -20,8 +21,7 @@ class MenuInicial():
         default_bot_index = 0  # Defina o índice do primeiro bot como padrão (0 neste caso)
 
         self.__container = [
-            [sg.Text('Escolha um dos bots disponíveis para interação')],
-            [sg.Text('Selecione um bot:')],
+            [sg.Text('Escolha um dos bots disponíveis para interação: ')],
             [sg.Combo(bot_nomes, default_value=bot_nomes[default_bot_index], key='bot_selecionado', readonly=True)],
             [sg.Button('Conversar'), sg.Button('Editar comandos')],
             [sg.Text(key='resultado')]

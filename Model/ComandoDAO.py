@@ -14,11 +14,11 @@ class ComandoDAO(DAO):
         try:
             return self.cache[codigo]
         except KeyError:
-            pass
+            print("Tentativa de acessar comando inexistente realizada!")
 
     def remove(self, codigo: int):
         try:
             self.cache.pop(codigo)
             self.dump()
         except KeyError:
-            pass
+            print("Tentativa de excluir comando inexistente realizada!")

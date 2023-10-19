@@ -70,8 +70,11 @@ class ControladorBots:
             elif event == "Ver comandos":
                 self.janela_comandos(bot)
             elif event == 'Enviar':
+                resultado = ''
+                if values["resultado"] != '':
+                    resultado += f'{values["resultado"]} \n'
                 if values["codigo"] == '':
-                    resultado = "Você deve preencher todos os campos"
+                    resultado += "- Você deve preencher todos os campos!"
                 else:
                     if self.__isnumber(values["codigo"]):
 
@@ -79,19 +82,23 @@ class ControladorBots:
                         for comando in bot.comandos:
                             lista.append(comando.id)
                         if not int(values["codigo"]) in lista:
-                            resultado = "Código não reconhecido!"
+                            resultado += "- Código não reconhecido!"
                         else:
                             for comando in bot.comandos:
                                 if int(values["codigo"]) == comando.id:
-                                    resultado = comando.get_resposta_random()
+                                    resultado += f'- Você: {values["codigo"]} \n- {bot.nome}: '
+                                    resultado += comando.get_resposta_random()
+                                    self.__tela.apaga_mensagem()
                     else:
                         valor = 0
                         for comando in bot.comandos:
                             if values["codigo"].lower() == comando.mensagem.lower():
-                                resultado = comando.get_resposta_random()
+                                resultado += f'- Você: {values["codigo"]} \n- {bot.nome}: '
+                                resultado += comando.get_resposta_random()
+                                self.__tela.apaga_mensagem()
                                 valor += 1
                         if valor == 0:
-                            resultado = "Comando não identificado!"
+                            resultado += "- Comando não identificado!"
             
             if resultado != '':
                 dados = str(resultado)
@@ -202,7 +209,7 @@ class ControladorBots:
                     if not flag:
                         resultado = "Este comando já existe!"
                     else:
-                        bot.adicionar_comando(values["codigo"], values["mensagem"])
+                        bot.adicionar_comando(int(values["codigo"]), values["mensagem"])
                         self.__tela.fim()
                         self.janela_editar_comandos(bot)
             

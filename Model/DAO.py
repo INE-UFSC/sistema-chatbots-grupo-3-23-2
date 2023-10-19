@@ -37,14 +37,14 @@ class DAO(ABC):
         try:
             return self.__cache[key]
         except KeyError:
-            pass
+            print("Tentativa de acessar objeto inexistente realizada!")
 
     def remove(self, key):
         try:
             self.__cache.pop(key)
             self.dump()
         except KeyError:
-            pass
+            print("Tentativa de excluir objeto inexistente realizada!")
 
     def get_all(self):
         return self.__cache.values()
