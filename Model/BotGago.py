@@ -1,5 +1,5 @@
-from Bots.Bot import Bot
-from Bots.Comando import Comando
+from Model.Bot import Bot
+from Model.Comando import Comando
 
 class BotGago(Bot):
     def __init__(self, nome, urlJSON):

@@ -1,8 +1,8 @@
 #encoding: utf-8
 from SistemaChatBot import SistemaChatBot as scb
-from Bots.BotGago import BotGago
-from Bots.BotFelizinho import BotFelizinho
-from Bots.BotNaruto import BotNaruto
+from Model.BotGago import BotGago
+from Model.BotFelizinho import BotFelizinho
+from Model.BotNaruto import BotNaruto
 from View.JanelaConversa import JanelaConversa
 from View.MenuInicial import MenuInicial
 from Control.ControladorBots import ControladorBots

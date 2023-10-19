@@ -1,6 +1,5 @@
 import PySimpleGUI as sg 
-from Bots.Bot import Bot
-from Bots.BotGago import BotGago
+from Model.Bot import Bot
 
 
 class JanelaComandos():

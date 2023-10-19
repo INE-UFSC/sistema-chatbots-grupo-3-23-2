@@ -1,6 +1,6 @@
 ##implemente as seguintes classes
-from Bots.Comando import Comando
-from Bots.ComandoDAO import ComandoDAO
+from Model.Comando import Comando
+from Model.ComandoDAO import ComandoDAO
 from abc import ABC, abstractmethod
 import random as r
 

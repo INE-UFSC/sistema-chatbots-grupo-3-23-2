@@ -1,5 +1,5 @@
 import PySimpleGUI as sg 
-from Bots.Bot import Bot
+from Model.Bot import Bot
 
 
 class JanelaAdicionarResposta():

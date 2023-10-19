@@ -1,5 +1,5 @@
-from Bots.DAO import DAO
-from Bots.Comando import Comando
+from Model.DAO import DAO
+from Model.Comando import Comando
 
 class ComandoDAO(DAO):
 
